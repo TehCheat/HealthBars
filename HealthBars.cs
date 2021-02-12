@@ -46,7 +46,7 @@ namespace HealthBars
             "Metadata/Monsters/LeagueAffliction/DoodadDaemons/DoodadDaemonGoatRhoa2Vanish",
             "Metadata/Monsters/InvisibleFire/InvisibleFireAfflictionCorpseDegen",
             "Metadata/Monsters/InvisibleFire/InvisibleFireAfflictionDemonColdDegenUnique",
-            "Metadata/Monsters/VolatileCore/VolatileDeadCore",
+            "Metadata/Monsters/VolatileCore/VolatileDeadCore"
         };
 
         private IngameUIElements ingameUI;
@@ -410,7 +410,7 @@ namespace HealthBars
             if (Entity.Type != EntityType.Monster && Entity.Type != EntityType.Player || Entity.Address == GameController.Player.Address ||
                 Entity.Type == EntityType.Daemon) return;
 
-            if (Entity.GetComponent<Life>() != null && !Entity.IsAlive) return;
+            if (Entity.HasComponent<Life>() && Entity.GetComponent<Life>() != null && !Entity.IsAlive) return;
             if (IgnoredSum.Any(x => Entity.Path.StartsWith(x))) return;
             Entity.SetHudComponent(new HealthBar(Entity, Settings));
         }
