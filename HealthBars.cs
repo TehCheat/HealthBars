@@ -54,7 +54,6 @@ namespace HealthBars
         private Vector2 oldplayerCord;
         private Entity Player;
         private HealthBar PlayerBar;
-        private double time;
         private RectangleF windowRectangle;
         private Size2F windowSize;
 
@@ -83,9 +82,9 @@ namespace HealthBars
                 windowSize = new Size2F(windowRectangle.Width / 2560, windowRectangle.Height / 1600);
                 camera = GameController.Game.IngameState.Camera;
 
-                return ingameUI.BetrayalWindow.IsVisibleLocal || ingameUI.SellWindow.IsVisibleLocal ||
+                return ingameUI.SyndicatePanel.IsVisibleLocal || ingameUI.SellWindow.IsVisibleLocal ||
                        ingameUI.DelveWindow.IsVisibleLocal || ingameUI.IncursionWindow.IsVisibleLocal ||
-                       ingameUI.UnveilWindow.IsVisibleLocal || ingameUI.TreePanel.IsVisibleLocal || ingameUI.AtlasPanel.IsVisibleLocal ||
+                       ingameUI.UnveilWindow.IsVisibleLocal || ingameUI.TreePanel.IsVisibleLocal || ingameUI.Atlas.IsVisibleLocal ||
                        ingameUI.CraftBench.IsVisibleLocal;
             }, 250);
             ReadIgnoreFile();
